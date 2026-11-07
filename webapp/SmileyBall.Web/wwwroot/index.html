@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smiley Ball</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23FFC93C'/><circle cx='35' cy='40' r='6'/><circle cx='65' cy='40' r='6'/><path d='M28 60 Q50 80 72 60' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/></svg>">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/">
+      <svg class="smiley" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" class="face"/>
+        <circle cx="35" cy="40" r="6" class="ink"/><circle cx="65" cy="40" r="6" class="ink"/>
+        <path d="M28 60 Q50 80 72 60" class="mouth"/>
+      </svg>
+      <span>Smiley Ball</span>
+    </a>
+    <div class="top-actions">
+      <span id="ball-chip" class="chip">Ball: checking…</span>
+      <button id="sync-btn" class="btn ghost" title="Look for new recordings on the ball now">Sync</button>
+      <label class="btn ghost" title="Add a recording from your computer">
+        Upload<input id="upload-input" type="file" accept=".wav,.mp3,.m4a,.ogg,.webm,.flac" hidden>
+      </label>
+    </div>
+  </header>
+
+  <div id="setup-banner" class="banner" hidden></div>
+  <div id="processing-banner" class="banner info" hidden></div>
+
+  <main class="layout">
+    <section id="view" class="view"></section>
+
+    <aside class="ask card" aria-label="Ask about class">
+      <h2>Ask Smiley</h2>
+      <label class="scope">About
+        <select id="ask-scope"><option value="">all my lectures</option></select>
+      </label>
+      <div id="chat" class="chat">
+        <p class="muted">Ask anything about class: “What's on the next exam?”, “Explain the example from Tuesday”, “Quiz me on last lecture”.</p>
+      </div>
+      <form id="ask-form" class="ask-form">
+        <textarea id="ask-input" rows="2" placeholder="Ask a question…" required></textarea>
+        <button class="btn primary" type="submit">Ask</button>
+      </form>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

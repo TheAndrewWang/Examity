@@ -1,0 +1,7 @@
+{
+  "token": "",
+  "port": 8765,
+  "mic": "auto",
+  "chunk_seconds": 600,
+  "low_disk_mb": 500
+}

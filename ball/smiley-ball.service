@@ -1,0 +1,21 @@
+# Starts the Smiley Ball recorder when the UNO Q boots.
+# Install (once):
+#   mkdir -p ~/.config/systemd/user
+#   cp smiley-ball.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now smiley-ball
+#   sudo loginctl enable-linger arduino     # run even when nobody is logged in
+# Logs:  journalctl --user -u smiley-ball -f
+
+[Unit]
+Description=Smiley Ball lecture recorder
+After=network-online.target sound.target
+
+[Service]
+WorkingDirectory=%h/Projects/smiley_ball/ball
+ExecStart=%h/Projects/smiley_ball/ball/.venv/bin/python -u recorder.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

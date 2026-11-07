@@ -1,0 +1,20 @@
+# Editor / OS
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Ball runtime data (has your token and recordings)
+ball/config.json
+ball/recordings/
+
+# .NET build output and local data
+bin/
+obj/
+webapp/SmileyBall.Web/Lectures/
+*.user
